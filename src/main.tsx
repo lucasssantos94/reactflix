@@ -5,6 +5,8 @@ import './views/styles/index.css'
 import { router } from '@app/router'
 import { RouterProvider } from 'react-router'
 
+import './app/lib/dynamicImportErrorListener'
+
 const rootElement = document.getElementById('root')
 if (rootElement) {
   createRoot(rootElement).render(
