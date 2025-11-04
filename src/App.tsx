@@ -1,9 +1,11 @@
+import { ThemeProvider } from '@app/contexts/ThemeProvider'
+
 const App = () => {
   return (
-    <div>
+    <ThemeProvider>
       <h1>reactflix</h1>
-    </div>
-  );
-};
+    </ThemeProvider>
+  )
+}
 
-export default App;
+export default App
