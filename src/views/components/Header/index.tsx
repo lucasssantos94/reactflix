@@ -52,7 +52,7 @@ export const Header = () => {
   }, [menuIsOpen])
 
   return (
-    <header className='p-4 flex items-center justify-between border-b relative z-50 bg-background'>
+    <header className='p-4 container mx-auto flex items-center justify-between border-b relative z-50 bg-background'>
       {/* Logo */}
       <Logo size='xl' />
 
