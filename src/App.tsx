@@ -13,11 +13,11 @@ const App = () => {
         <div className='flex flex-col min-h-screen'>
           <Header />
 
-          <div className='flex-1 mt-10'>
+          <main className='flex-1 mt-8 container mx-auto'>
             <Suspense fallback={<LoadingSpinner />}>
               <Outlet />
             </Suspense>
-          </div>
+          </main>
           <footer className='flex items-center justify-center p-6'>
             <h3>@2023 reactflix</h3>
           </footer>
