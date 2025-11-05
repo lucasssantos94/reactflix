@@ -1,5 +1,6 @@
 import { useGetTopRanted } from '@/app/hooks/movies/useGetTopRanted'
 import { LoadingSpinner } from '@/views/components/LoadingSpinner'
+import { MediaCard } from '@/views/components/MediaCard'
 
 const Home = () => {
   const { topRanted, isLoading, isError } = useGetTopRanted()
@@ -12,7 +13,7 @@ const Home = () => {
 
       <div>
         {topRanted?.map(movie => (
-          <div key={movie.id}>{movie.title}</div>
+          <MediaCard key={movie.id} media={movie} />
         ))}
       </div>
     </div>
