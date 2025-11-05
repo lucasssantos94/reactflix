@@ -10,12 +10,20 @@ const App = () => {
   return (
     <QueryProvider>
       <ThemeProvider>
-        <Header />
+        <div className='flex flex-col min-h-screen'>
+          <Header />
 
-        <Suspense fallback={<LoadingSpinner />}>
-          <Outlet />
-        </Suspense>
+          <div className='flex-1 mt-10'>
+            <Suspense fallback={<LoadingSpinner />}>
+              <Outlet />
+            </Suspense>
+          </div>
+          <footer className='flex items-center justify-center p-6'>
+            <h3>@2023 reactflix</h3>
+          </footer>
+        </div>
       </ThemeProvider>
+
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryProvider>
   )

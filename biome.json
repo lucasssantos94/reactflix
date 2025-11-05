@@ -40,6 +40,13 @@
     }
   },
   "files": {
-    "includes": ["**", "!", "!src/ignored-file.js", "!dist", "!node_modules"]
+    "includes": [
+      "**",
+      "!",
+      "!src/ignored-file.js",
+      "!dist",
+      "!node_modules",
+      "!src/views/components/ui/*"
+    ]
   }
 }

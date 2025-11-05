@@ -1,22 +1,27 @@
-import { useGetTopRanted } from '@/app/hooks/movies/useGetTopRanted'
+import { Carrousel } from '@/views/components/Carrousel'
 import { LoadingSpinner } from '@/views/components/LoadingSpinner'
-import { MediaCard } from '@/views/components/MediaCard'
+
+import { useHome } from './useHome'
 
 const Home = () => {
-  const { topRanted, isLoading, isError } = useGetTopRanted()
-  console.log(topRanted)
+  const { topRanted, isLoading, isError } = useHome()
   if (isLoading) return <LoadingSpinner />
   if (isError) return <div>Erro ao carregar filmes</div>
   return (
-    <div>
-      <h1>Home</h1>
+    <>
+      <main className='p-6 flex flex-col gap-8'>
+        <section>
+          <h2 className='text-3xl font-semibold text-foreground-muted ml-4'>
+            Mais Votados
+          </h2>
 
-      <div>
-        {topRanted?.map(movie => (
-          <MediaCard key={movie.id} media={movie} />
-        ))}
-      </div>
-    </div>
+          <div className='p-6'>
+            <Carrousel media={topRanted ?? []} />
+          </div>
+        </section>
+      </main>
+      <section></section>
+    </>
   )
 }
 

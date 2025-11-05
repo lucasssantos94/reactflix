@@ -1,5 +1,3 @@
-/** biome-ignore-all lint/a11y/noStaticElementInteractions: <explanation> */
-/** biome-ignore-all lint/a11y/useKeyWithClickEvents: <explanation> */
 import { useState } from 'react'
 import { Link } from 'react-router'
 import type { IMovieDetails } from '@/app/types/MovieDetails'
@@ -48,7 +46,7 @@ export const MediaCard = ({
   }[size]
 
   return (
-    <div
+    <article
       className={`group relative ${cardClasses.container}`}
       onMouseEnter={() => handleInteraction(true)}
       onMouseLeave={() => handleInteraction(false)}
@@ -155,11 +153,11 @@ export const MediaCard = ({
       </div>
 
       {isActive && (
-        <div
+        <Button
           className='fixed inset-0 z-20 md:hidden bg-black/50'
           onClick={() => setIsActive(false)}
         />
       )}
-    </div>
+    </article>
   )
 }

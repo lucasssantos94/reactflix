@@ -1,3 +1,4 @@
+// components/MediaImage.tsx
 import { useState } from 'react'
 import { getImageUrl } from '@/app/utils/getImageUrl'
 import type { TMDBImageSize } from '@/app/utils/tmdbImages'
@@ -39,7 +40,7 @@ export const MediaImage = ({
   }
 
   return (
-    <div className={`relative ${containerClassName}`}>
+    <div className={`relative ${containerClassName} `}>
       {/* Loading State */}
       {showLoading && !imageLoaded && !imageError && (
         <div className='absolute inset-0 bg-gray-700 animate-pulse rounded-lg' />
@@ -53,11 +54,12 @@ export const MediaImage = ({
           </span>
         </div>
       ) : (
+        /* Image */
         <img
           src={getImageUrl({ path: src, size })}
           alt={alt}
           className={`
-            w-full f-full object-cover transition-all duration-300
+            w-full h-full object-cover transition-all duration-300
             ${imageLoaded ? 'opacity-100' : 'opacity-0'}
             ${className}
           `}
