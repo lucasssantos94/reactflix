@@ -39,11 +39,11 @@ export const Carousel = <T,>({
         ))}
       </CarouselContent>
       <CarouselPrevious
-        className='left-2 top-1/2 -translate-y-1/2 bg-gray-900/80 cursor-pointer'
+        className='left-2 top-1/2 -translate-y-1/2 bg-gray-900/80 cursor-pointer md:w-12 md:h-12'
         variant='secondary'
       />
       <CarouselNext
-        className='right-2 top-1/2 -translate-y-1/2 bg-gray-900/80 cursor-pointer'
+        className='right-2 top-1/2 -translate-y-1/2 bg-gray-900/80 cursor-pointer  md:w-12 md:h-12'
         variant='secondary'
       />
     </BaseCarousel>

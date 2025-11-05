@@ -8,9 +8,9 @@ const Home = () => {
   if (isLoading) return <LoadingSpinner />
   if (isError) return <div>Erro ao carregar filmes</div>
   return (
-    <>
+    <div className='flex flex-col gap-8'>
       <section>
-        <h2 className='text-3xl font-semibold text-foreground-muted ml-4'>
+        <h2 className='text-3xl font-semibold text-foreground-muted mb-4'>
           Mais Votados
         </h2>
 
@@ -21,7 +21,7 @@ const Home = () => {
         />
       </section>
       <section>
-        <h2 className='text-3xl font-semibold text-foreground-muted ml-4'>
+        <h2 className='text-3xl font-semibold text-foreground-muted mb-4'>
           Mais Votados
         </h2>
 
@@ -33,7 +33,7 @@ const Home = () => {
       </section>
 
       <section></section>
-    </>
+    </div>
   )
 }
 
