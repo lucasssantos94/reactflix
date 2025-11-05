@@ -5,7 +5,7 @@ import './views/styles/index.css'
 import { router } from '@app/router'
 import { RouterProvider } from 'react-router'
 
-import './app/lib/dynamicImportErrorListener'
+import '@app/utils/dynamicImportErrorListener'
 
 const rootElement = document.getElementById('root')
 if (rootElement) {
