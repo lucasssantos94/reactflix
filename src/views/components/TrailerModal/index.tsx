@@ -7,7 +7,7 @@ import {
   DialogTitle,
 } from '../ui/dialog'
 
-const ModalTrailer = () => {
+export const TrailerModal = () => {
   const { isOpen, mediaId, closeModal } = useTrailerStore()
   const { trailer } = useGetMediaTrailer(mediaId || 0)
 
@@ -36,5 +36,3 @@ const ModalTrailer = () => {
     </Dialog>
   )
 }
-
-export default ModalTrailer

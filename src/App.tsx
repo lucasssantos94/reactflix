@@ -2,13 +2,22 @@ import { ThemeProvider } from '@app/contexts/ThemeProvider'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { Header } from '@views/components/Header'
 import { LoadingSpinner } from '@views/components/LoadingSpinner'
-import ModalTrailer from '@views/components/ModalTrailer'
 import ScrollToTop from '@views/components/ScrollToTop'
-import { Suspense } from 'react'
+import { TrailerModal } from '@views/components/TrailerModal'
+import { Suspense, useEffect } from 'react'
 import { Outlet } from 'react-router'
 import { QueryProvider } from './app/contexts/QueryProvider'
+import { useCtrlKShortcut } from './app/stores/useModalSearchStore'
+import { SearchModal } from './views/components/SearchModal/'
 
 const App = () => {
+  const { setupCtrlKListener } = useCtrlKShortcut()
+
+  useEffect(() => {
+    const cleanup = setupCtrlKListener()
+    return cleanup
+  }, [setupCtrlKListener])
+
   return (
     <QueryProvider>
       <ThemeProvider>
@@ -23,7 +32,8 @@ const App = () => {
           <footer className='flex items-center justify-center p-6'>
             <h3>@2023 reactflix</h3>
           </footer>
-          <ModalTrailer />
+          <TrailerModal />
+          <SearchModal />
         </div>
       </ThemeProvider>
 

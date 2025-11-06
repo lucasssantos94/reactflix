@@ -2,8 +2,9 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Clapperboard, Film, House, Menu, Users, X } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { NavLink, useLocation } from 'react-router'
-import { BtnSearch } from '../BtnSearch'
+import { useModalSearchStore } from '@/app/stores/useModalSearchStore'
 import { Logo } from '../Logo'
+import { SearchBtn } from '../SearchBtn'
 import { ThemeSwitcher } from '../ThemeSwitcher'
 import { Button } from '../ui/button'
 
@@ -11,6 +12,7 @@ export const Header = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
   const location = useLocation()
+  const { isOpen } = useModalSearchStore()
 
   const links = [
     { name: 'Home', href: '/', icon: <House /> },
@@ -51,6 +53,10 @@ export const Header = () => {
     }
   }, [menuIsOpen])
 
+  useEffect(() => {
+    if (isOpen) setMenuIsOpen(false)
+  }, [isOpen])
+
   return (
     <header className='p-4 sticky top-0 border-b  z-50 bg-background '>
       <div className=' flex items-center justify-between '>
@@ -79,7 +85,7 @@ export const Header = () => {
         <div className='flex items-center gap-2'>
           {/* Desktop */}
           <div className='hidden lg:flex gap-2'>
-            <BtnSearch />
+            <SearchBtn />
             <ThemeSwitcher />
           </div>
 
@@ -131,6 +137,7 @@ export const Header = () => {
 
                 {/* Links */}
                 <nav className='flex flex-col gap-6 mt-4'>
+                  <SearchBtn />
                   {links.map(link => (
                     <NavLink
                       key={link.name}
@@ -148,9 +155,9 @@ export const Header = () => {
                 </nav>
 
                 {/* Busca */}
-                <div className='mt-auto border-t border-slate-300 dark:border-slate-700 pt-4'>
-                  <BtnSearch />
-                </div>
+                {/* <div className="mt-auto border-t border-slate-300 dark:border-slate-700 pt-4 flex">
+                  <SearchBtn />
+                </div> */}
               </motion.aside>
             </>
           )}
