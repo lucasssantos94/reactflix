@@ -6,10 +6,11 @@ export const useGetSeriesDetails = (serieId: string) => {
   const { data, isLoading, refetch, isFetching, error } =
     useQuery<ISeriesDetails>({
       staleTime: Infinity,
-      queryKey: ['serieDetails', serieId],
+      queryKey: ['serie-details', serieId],
       queryFn: () => getSerieDetails(serieId),
       enabled: !!serieId,
     })
+  console.log(data)
   return {
     serieDetails: data,
     isLoading,

@@ -1,4 +1,4 @@
-import { getTrendingWeekMovies } from '@app/services/movies/getTrendinWeekMovies'
+import { getTrendingWeekMovies } from '@app/services/movies/getTrendingWeekMovies'
 import { useQuery } from '@tanstack/react-query'
 import type { IMovieDetails } from '@/app/types/MovieDetails'
 

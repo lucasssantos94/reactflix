@@ -6,7 +6,7 @@ export const useGetMovieDetails = (movieId: string) => {
   const { data, isLoading, refetch, isFetching, error } =
     useQuery<IMovieDetails>({
       staleTime: Infinity,
-      queryKey: ['movieDetails', movieId],
+      queryKey: ['movie-details', movieId],
       queryFn: () => getMovieDetails(movieId),
       enabled: !!movieId,
     })
