@@ -13,7 +13,7 @@ const App = () => {
       <ThemeProvider>
         <div className='flex flex-col min-h-screen'>
           <Header />
-          <main className='flex-1 container mx-auto'>
+          <main className='flex-1'>
             <Suspense fallback={<LoadingSpinner />}>
               <Outlet />
             </Suspense>

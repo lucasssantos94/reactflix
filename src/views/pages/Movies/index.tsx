@@ -44,31 +44,34 @@ const Movies = () => {
   return (
     <>
       <title>ReactFlix - Filmes</title>
+      <div className='mt-8 px-4 '>
+        <div className='flex items-center gap-8 mb-8'>
+          <h1 className='text-3xl font-normal'>Filmes</h1>
+          <SelectGenre genres={moviesGenres ?? []} />
+        </div>
 
-      <div className='flex items-center gap-8 mb-8'>
-        <h1 className='text-3xl font-normal'>Filmes</h1>
-        <SelectGenre genres={moviesGenres ?? []} />
+        <section>
+          <ContainerGrid>
+            {isLoading
+              ? Array.from({ length: 10 }).map(() => (
+                  <SkeletonCard key={Math.random()} />
+                ))
+              : movies?.map((movie: IMovieDetails, index) => (
+                  <MediaCard
+                    key={`${movie.id}-${Math.floor(index / 20)}`}
+                    media={movie}
+                  />
+                ))}
+
+            {isFetchingNextPage &&
+              Array.from({ length: 10 }).map(() => (
+                <SkeletonCard key={`skeleton-${Math.random()}`} />
+              ))}
+          </ContainerGrid>
+        </section>
+
+        <div ref={loadMoreMoviesRef} />
       </div>
-
-      <ContainerGrid>
-        {isLoading
-          ? Array.from({ length: 10 }).map(() => (
-              <SkeletonCard key={Math.random()} />
-            ))
-          : movies?.map((movie: IMovieDetails, index) => (
-              <MediaCard
-                key={`${movie.id}-${Math.floor(index / 20)}`}
-                media={movie}
-              />
-            ))}
-
-        {isFetchingNextPage &&
-          Array.from({ length: 10 }).map(() => (
-            <SkeletonCard key={`skeleton-${Math.random()}`} />
-          ))}
-      </ContainerGrid>
-
-      <div ref={loadMoreMoviesRef} />
     </>
   )
 }

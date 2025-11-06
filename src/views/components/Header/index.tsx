@@ -53,7 +53,7 @@ export const Header = () => {
 
   return (
     <header className='p-4 sticky top-0 border-b  z-50 bg-background '>
-      <div className='container mx-auto flex items-center justify-between '>
+      <div className=' flex items-center justify-between '>
         {/* Logo */}
         <Logo size='xl' />
 

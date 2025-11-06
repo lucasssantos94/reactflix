@@ -13,7 +13,7 @@ export const SelectGenre = ({ genres }: { genres: IGenre[] }) => {
       <SelectTrigger className='w-[150px] bg-background text-foreground border border-border rounded-md px-3 py-2'>
         <SelectValue placeholder='Gêneros' />
       </SelectTrigger>
-      <SelectContent className='bg-background border border-border rounded-md shadow-lg'>
+      <SelectContent className='bg-background border border-border rounded-md shadow-lg '>
         {genres.map(genre => (
           <SelectItem
             key={genre.id}
