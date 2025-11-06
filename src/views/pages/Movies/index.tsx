@@ -1,13 +1,16 @@
 import { useEffect, useRef } from 'react'
 import { useGetAllMovies } from '@/app/hooks/movies/useGetAllMovies'
+import { useGetMoviesGenres } from '@/app/hooks/movies/useGetMoviesGenres'
 import type { IMovieDetails } from '@/app/types/MovieDetails'
 import { ContainerGrid } from '@/views/components/ContainerGrid'
 import { MediaCard } from '@/views/components/MediaCard'
+import { SelectGenre } from '@/views/components/SelectGenre'
 import { SkeletonCard } from '@/views/components/SkeletonCard'
 
 const Movies = () => {
   const { movies, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useGetAllMovies()
+  const { moviesGenres } = useGetMoviesGenres()
 
   const loadMoreMoviesRef = useRef<null | HTMLDivElement>(null)
 
@@ -41,6 +44,11 @@ const Movies = () => {
   return (
     <>
       <title>ReactFlix - Filmes</title>
+
+      <div className='flex items-center gap-8 mb-8'>
+        <h1 className='text-3xl font-normal'>Filmes</h1>
+        <SelectGenre genres={moviesGenres ?? []} />
+      </div>
 
       <ContainerGrid>
         {isLoading

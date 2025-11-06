@@ -5,6 +5,7 @@ import { LoadingSpinner } from '@views/components/LoadingSpinner'
 import { Suspense } from 'react'
 import { Outlet } from 'react-router'
 import { QueryProvider } from './app/contexts/QueryProvider'
+import ModalTrailer from './views/components/ModalTrailer'
 
 const App = () => {
   return (
@@ -12,8 +13,7 @@ const App = () => {
       <ThemeProvider>
         <div className='flex flex-col min-h-screen'>
           <Header />
-
-          <main className='flex-1 mt-8 container mx-auto'>
+          <main className='flex-1 container mx-auto'>
             <Suspense fallback={<LoadingSpinner />}>
               <Outlet />
             </Suspense>
@@ -21,6 +21,7 @@ const App = () => {
           <footer className='flex items-center justify-center p-6'>
             <h3>@2023 reactflix</h3>
           </footer>
+          <ModalTrailer />
         </div>
       </ThemeProvider>
 

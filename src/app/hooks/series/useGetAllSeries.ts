@@ -15,7 +15,6 @@ export const useGetAllSeries = () => {
     })
 
   const series = data?.pages.flatMap(page => page.results)
-  console.log(series)
 
   return {
     series,
