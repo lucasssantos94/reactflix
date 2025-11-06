@@ -2,10 +2,11 @@ import { ThemeProvider } from '@app/contexts/ThemeProvider'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { Header } from '@views/components/Header'
 import { LoadingSpinner } from '@views/components/LoadingSpinner'
+import ModalTrailer from '@views/components/ModalTrailer'
+import ScrollToTop from '@views/components/ScrollToTop'
 import { Suspense } from 'react'
 import { Outlet } from 'react-router'
 import { QueryProvider } from './app/contexts/QueryProvider'
-import ModalTrailer from './views/components/ModalTrailer'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <div className='flex flex-col min-h-screen'>
           <Header />
           <main className='flex-1'>
+            <ScrollToTop />
             <Suspense fallback={<LoadingSpinner />}>
               <Outlet />
             </Suspense>
