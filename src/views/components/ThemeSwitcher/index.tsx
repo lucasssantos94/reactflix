@@ -21,7 +21,7 @@ export function ThemeSwitcher() {
           <span className='sr-only'>Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align='end' className='bg-background'>
+      <DropdownMenuContent align='end' className='bg-background z-100'>
         <DropdownMenuItem onClick={() => setTheme('light')}>
           Claro
         </DropdownMenuItem>

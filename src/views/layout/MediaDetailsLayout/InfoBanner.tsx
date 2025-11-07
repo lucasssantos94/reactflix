@@ -106,7 +106,7 @@ export const InfoBanner = () => {
           Sinopse
         </h2>
 
-        <p className='text-gray-200 leading-relaxed text-sm md:text-base overflow-y-auto md:overflow-visible scrollbar-none max-h-[180px] md:max-h-none'>
+        <p className='text-gray-200 leading-relaxed text-sm md:text-base overflow-y-auto md:overflow-visible scrollbar-none max-h-[100px] md:max-h-none'>
           {overview}
         </p>
 
