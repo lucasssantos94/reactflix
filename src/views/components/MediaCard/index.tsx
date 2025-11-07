@@ -109,9 +109,13 @@ export const MediaCard = <T extends MediaType>({
               </div>
             </div>
 
-            {media.overview && (
+            {media.overview ? (
               <p className='text-gray-300 text-sm leading-relaxed line-clamp-3'>
                 {media.overview}
+              </p>
+            ) : (
+              <p className='text-gray-300 text-sm leading-relaxed line-clamp-3'>
+                Sinopse não disponível
               </p>
             )}
 

@@ -102,13 +102,20 @@ export const InfoBanner = () => {
           </p>
         )}
 
-        <h2 className='text-lg md:text-2xl font-semibold mb-2 text-white'>
-          Sinopse
-        </h2>
-
-        <p className='text-gray-200 leading-relaxed text-sm md:text-base overflow-y-auto md:overflow-visible scrollbar-none max-h-[100px] md:max-h-none'>
-          {overview}
-        </p>
+        {overview ? (
+          <>
+            <h2 className='text-lg md:text-2xl font-semibold mb-2 text-white'>
+              Sinopse
+            </h2>
+            <p className='text-gray-200 leading-relaxed text-sm md:text-base overflow-y-auto md:overflow-visible scrollbar-none max-h-[100px] md:max-h-none'>
+              {overview}
+            </p>
+          </>
+        ) : (
+          <p className='text-gray-200 leading-relaxed text-sm md:text-base overflow-y-auto md:overflow-visible scrollbar-none max-h-[100px] md:max-h-none'>
+            sinopse não disponível
+          </p>
+        )}
 
         {/* Diretor / Roteiristas / Criador */}
         <div className='flex flex-col sm:flex-row flex-wrap items-start gap-4 mt-6 md:mt-8 text-white'>

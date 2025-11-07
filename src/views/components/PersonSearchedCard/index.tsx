@@ -102,7 +102,7 @@ export const PersonSearchedCard = ({ person }: IPersonSearchedCardProps) => {
         </div>
 
         {/* Gradient Border Bottom */}
-        <div className='h-1 bg-linear-to-r from-cyan-500/0 via-red-400/50 to-red-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
+        <div className='h-1 bg-linear-to-r from-red-500/0 via-red-400/50 to-red-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
       </div>
     </Link>
   )

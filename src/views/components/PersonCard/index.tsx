@@ -1,22 +1,58 @@
+import type { IPersonDetails } from '@app/types/PersonDetails'
 import { Link } from 'react-router'
-
-import type { ICast } from '@/app/types/Cast'
 import { getImageUrl } from '@/app/utils/getImageUrl'
 import { MediaImage } from '../MediaImage'
 
-export const PersonCard = ({ member }: { member: ICast }) => {
+interface IPersonCardProps {
+  person: IPersonDetails
+}
+
+export const PersonCard = ({ person }: IPersonCardProps) => {
+  const personLink = `/person/${person.id}`
+  const knownFor = person.known_for || []
+  const topWorks = knownFor.slice(0, 3).map(item => item.title || item.name)
+
   return (
-    <Link to={`/people/${member.id}`}>
-      <div key={member.id} className='text-center'>
-        <MediaImage
-          src={getImageUrl({ path: member.profile_path, size: 'W185' })}
-          alt={member.name}
-          size='W185'
-          className='w-full h-48 object-cover rounded-lg mb-4 border border-[#444]'
-          containerClassName='h-[239px]'
-        />
-        <h3 className='text-lg font-bold text-[#ccc]'>{member.name}</h3>
-        <p className='text-sm text-[#777]'>{member.character}</p>
+    <Link to={personLink} className='block w-full max-w-[315px]'>
+      <div className='group bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-red-500 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/5 overflow-hidden hover:-translate-y-1 w-full'>
+        {/* Image Container */}
+        <div className='relative w-full aspect-3/4 overflow-hidden bg-gray-100 dark:bg-gray-700'>
+          <MediaImage
+            src={getImageUrl({
+              path: person.profile_path,
+              size: 'PROFILE_MEDIUM',
+            })}
+            alt={person.name}
+            className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-700'
+            containerClassName='w-full h-full'
+          />
+
+          {/* Gradient overlay on hover */}
+          <div className='absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
+        </div>
+
+        {/* Content Container */}
+        <div className='p-4 space-y-2'>
+          {/* Name */}
+          <h3 className='font-semibold text-gray-900 dark:text-white group-hover:text-red-500 transition-colors duration-300 text-base text-center line-clamp-2 min-h-[2.5rem] flex items-center justify-center'>
+            {person.name}
+          </h3>
+
+          {/* Known For Works */}
+          <div className='space-y-1'>
+            {topWorks.map((work, index) => (
+              <p
+                key={index}
+                className='text-sm text-gray-600 dark:text-gray-400 text-center leading-tight line-clamp-1 px-1'
+              >
+                {work}
+              </p>
+            ))}
+          </div>
+        </div>
+
+        {/* Hover indicator */}
+        <div className='w-0 group-hover:w-full h-0.5 bg-red-500 transition-all duration-300 mx-auto' />
       </div>
     </Link>
   )

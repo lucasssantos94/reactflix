@@ -2,8 +2,8 @@ import { useMediaInfo } from '@app/hooks/media/useMediaDetails'
 import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router'
 import { Carousel } from '@/views/components/Carousel'
+import { CastCard } from '@/views/components/CastCard'
 import { LoadingSpinner } from '@/views/components/LoadingSpinner'
-import { PersonCard } from '@/views/components/PersonCard'
 import { RecommendationCard } from '@/views/components/RecommendationCard'
 
 export const SectionInfo = () => {
@@ -34,7 +34,7 @@ export const SectionInfo = () => {
                 <ArrowRight className='text-[#ccc]' />
               </Link>
             }
-            renderItem={item => <PersonCard member={item} />}
+            renderItem={item => <CastCard member={item} />}
           />
 
           <div className='border-b-2 py-4'>

@@ -17,18 +17,16 @@ export const Header = () => {
   const isMobile = useIsMobile()
 
   const links = [
-    { name: 'Home', href: '/', icon: <House /> },
+    { name: 'Inicio', href: '/', icon: <House /> },
     { name: 'Filmes', href: '/movies', icon: <Film /> },
     { name: 'Series', href: '/series', icon: <Clapperboard /> },
     { name: 'Pessoas', href: '/people', icon: <Users /> },
   ]
 
-  // Fecha menu ao mudar de rota
   useEffect(() => {
     setMenuIsOpen(false)
   }, [location.pathname])
 
-  // Fecha menu ao clicar fora
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
