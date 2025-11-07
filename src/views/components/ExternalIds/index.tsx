@@ -5,6 +5,11 @@ import linkIcon from '@assets/icons/link.svg?url'
 import xIcon from '@assets/icons/x.svg?url'
 import type { ReactNode } from 'react'
 import type { IExternalIds } from '@/app/types/MediaBase'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/views/components/ui/tooltip'
 
 export const EXTERNAL_ID_SOURCES: Record<
   'imdb' | 'facebook' | 'instagram' | 'twitter',
@@ -61,28 +66,41 @@ export const ExternalIds = ({
         }
 
         return (
-          <a
-            key={key}
-            href={source.url(id)}
-            target='_blank'
-            rel='noopener noreferrer'
-            className='text-blue-500 hover:underline'
-            title={source.name}
-          >
-            {source.icon || source.name}
-          </a>
+          <Tooltip key={key}>
+            <TooltipTrigger>
+              <a
+                key={key}
+                href={source.url(id)}
+                target='_blank'
+                rel='noopener noreferrer'
+                title={source.name}
+              >
+                {source.icon || source.name}
+              </a>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>{`Visitar ${source.name}`}</p>
+            </TooltipContent>
+          </Tooltip>
         )
       })}
 
       {homepage && (
-        <a
-          href={homepage}
-          target='_blank'
-          rel='noopener noreferrer'
-          className='text-blue-500 hover:underline'
-        >
-          <img src={linkIcon} alt='Link' className='w-8 h-8' />
-        </a>
+        <Tooltip>
+          <TooltipTrigger>
+            <a
+              href={homepage}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='text-blue-500 hover:underline'
+            >
+              <img src={linkIcon} alt='Link' className='w-8 h-8' />
+            </a>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Visitar site oficial</p>
+          </TooltipContent>
+        </Tooltip>
       )}
     </div>
   )
