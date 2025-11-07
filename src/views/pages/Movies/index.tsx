@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useGetAllMovies } from '@/app/hooks/movies/useGetAllMovies'
 import { useGetMoviesGenres } from '@/app/hooks/movies/useGetMoviesGenres'
 import type { IMovieDetails } from '@/app/types/MovieDetails'
@@ -8,11 +8,17 @@ import { SelectGenre } from '@/views/components/SelectGenre'
 import { SkeletonCard } from '@/views/components/SkeletonCard'
 
 const Movies = () => {
+  const [selectedGenreId, setSelectedGenreId] = useState<string>('')
+
   const { movies, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
-    useGetAllMovies()
+    useGetAllMovies(selectedGenreId as string)
   const { moviesGenres } = useGetMoviesGenres()
 
   const loadMoreMoviesRef = useRef<null | HTMLDivElement>(null)
+
+  const handleSelectGenre = (genreId: string) => {
+    setSelectedGenreId(genreId)
+  }
 
   useEffect(() => {
     if (!loadMoreMoviesRef.current || !hasNextPage || isFetchingNextPage) return
@@ -47,7 +53,11 @@ const Movies = () => {
       <div className='mt-8 px-4 '>
         <div className='flex items-center gap-8 mb-8'>
           <h1 className='text-3xl font-normal'>Filmes</h1>
-          <SelectGenre genres={moviesGenres ?? []} />
+          <SelectGenre
+            genres={moviesGenres ?? []}
+            selectedGenre={selectedGenreId ?? ''}
+            onGenreChange={handleSelectGenre}
+          />
         </div>
 
         <section>

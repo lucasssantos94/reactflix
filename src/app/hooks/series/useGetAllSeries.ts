@@ -1,12 +1,12 @@
 import { getAllSeries } from '@app/services/series/getAllSeries'
 import { useInfiniteQuery } from '@tanstack/react-query'
 
-export const useGetAllSeries = () => {
+export const useGetAllSeries = (selectedGenreId?: string) => {
   const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useInfiniteQuery({
-      queryKey: ['series'],
+      queryKey: ['series', selectedGenreId],
       initialPageParam: 1,
-      queryFn: ({ pageParam }) => getAllSeries(pageParam),
+      queryFn: ({ pageParam }) => getAllSeries(pageParam, selectedGenreId),
       getNextPageParam: (lastPage, allPages, lastPageParam) => {
         const isLastPage = allPages.length >= lastPage.total_pages
         if (isLastPage) return null
