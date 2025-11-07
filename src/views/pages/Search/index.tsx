@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 import { NavLink, Outlet, useParams } from 'react-router'
 import { Loading } from '@/views/components/Loading'
 import { LoadingSpinner } from '@/views/components/LoadingSpinner'
+import { SearchForm } from '@/views/components/SearchForm'
 import { useSearch } from './useSearch'
 
 const Search = () => {
@@ -23,6 +24,9 @@ const Search = () => {
   console.log(searchData)
   return (
     <section className='container mx-auto grid grid-cols-1 md:grid-cols-[25%_75%] gap-8 p-6'>
+      <div className='col-span-full'>
+        <SearchForm />
+      </div>
       <div className='h-[200px] min-h-[200px] rounded-lg border border-gray-700'>
         <div className='bg-gray-700/50 rounded-t-lg p-4 border-b border-gray-700'>
           <h2>Resultados para {search}</h2>
