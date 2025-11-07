@@ -42,11 +42,11 @@ export const Carousel = <T,>({
         {carouselItem}
       </CarouselContent>
       <CarouselPrevious
-        className='left-2 top-1/2 -translate-y-1/2 bg-gray-900/80 cursor-pointer md:w-12 md:h-12 z-50'
+        className='text-white left-2 top-1/2 -translate-y-1/2 bg-gray-700/90 hover:bg-gray-900 cursor-pointer md:w-12 md:h-12 z-50'
         variant='secondary'
       />
       <CarouselNext
-        className='right-2 top-1/2 -translate-y-1/2 bg-gray-900/80 cursor-pointer  md:w-12 md:h-12 z-50'
+        className='text-white right-2 top-1/2 -translate-y-1/2 bg-gray-700/90 hover:bg-gray-900 cursor-pointer  md:w-12 md:h-12 z-50'
         variant='secondary'
       />
     </BaseCarousel>
