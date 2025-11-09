@@ -12,6 +12,5 @@ export async function getPeople(pageParam = 1) {
 
 export async function getPersonDetails(personId: string) {
   const response = await tmdb.get(`/person/${personId}`)
-  console.log(response.data)
   return response.data
 }

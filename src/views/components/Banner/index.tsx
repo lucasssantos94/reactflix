@@ -32,25 +32,10 @@ const Banner = ({ data = [] }: BannerProps) => {
   )
 
   useEffect(() => {
-    const plugin = autoplayPlugin.current
-    if (!plugin) return
-
     if (isOpen) {
-      try {
-        plugin.stop()
-      } catch (e) {
-        console.log(e)
-      }
-    } else {
-      if (!isHovered) {
-        try {
-          plugin.play()
-        } catch (e) {
-          console.log(e)
-        }
-      }
+      autoplayPlugin.current?.stop()
     }
-  }, [isOpen, isHovered])
+  }, [isOpen])
 
   const handleMouseEnter = () => {
     setIsHovered(true)
@@ -64,11 +49,7 @@ const Banner = ({ data = [] }: BannerProps) => {
   const handleMouseLeave = () => {
     setIsHovered(false)
     if (!isOpen) {
-      try {
-        autoplayPlugin.current?.play()
-      } catch (e) {
-        console.log(e)
-      }
+      autoplayPlugin.current?.play()
     }
   }
 

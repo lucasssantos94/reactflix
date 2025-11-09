@@ -7,8 +7,6 @@ export function useGetPersonDetails(personId: string) {
     queryFn: () => getPersonData(personId),
   })
 
-  console.log(data)
-
   return {
     personDetails: data,
     isLoading,
