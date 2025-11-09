@@ -160,6 +160,7 @@ const PersonDetails = () => {
                 })}
                 alt={details.name}
                 className='w-full h-full object-cover'
+                containerClassName='h-full'
               />
             </div>
           </div>
@@ -169,7 +170,6 @@ const PersonDetails = () => {
               {details.name}
             </h1>
 
-            {/* Status (se falecido) */}
             {dateInfo?.isDeceased && (
               <div className='mb-4'>
                 <span className='inline-flex items-center px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium'>

@@ -46,7 +46,6 @@ export const MediaImage = ({
         <div className='absolute inset-0 bg-gray-700 animate-pulse rounded-lg' />
       )}
 
-      {/* Error State */}
       {imageError ? (
         <div className='flex items-center justify-center bg-gray-800 rounded-lg w-full h-full'>
           <span className='text-gray-400 text-sm text-center px-2'>

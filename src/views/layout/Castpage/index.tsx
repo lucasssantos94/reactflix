@@ -36,14 +36,10 @@ export const CastPage = ({ type, id }: CastPageProps) => {
         {/* Header */}
         <div className='mb-8'>
           <h1 className='text-3xl font-bold text-gray-900 dark:text-white mb-2'>
-            Elenco {type === 'movie' ? 'do Filme' : 'da Série'}
+            Elenco e Equipe Técnica
           </h1>
-          <p className='text-gray-600 dark:text-gray-400'>
-            Conheça o elenco completo
-          </p>
         </div>
 
-        {/* Loading State */}
         {isLoading && (
           <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4'>
             {Array.from({ length: 12 }).map((_, index) => (
@@ -56,10 +52,8 @@ export const CastPage = ({ type, id }: CastPageProps) => {
           </div>
         )}
 
-        {/* Cast Grid */}
         {!isLoading && castData && (
           <>
-            {/* Elenco Principal (Atores) */}
             <div className='mb-12'>
               <h2 className='text-2xl font-semibold text-gray-900 dark:text-white mb-6 pb-2 border-b border-gray-200 dark:border-gray-700'>
                 Elenco Principal
