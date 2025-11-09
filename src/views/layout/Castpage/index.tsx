@@ -26,6 +26,10 @@ export const CastPage = ({ type, id }: CastPageProps) => {
   const error = type === 'movie' ? errorMovie : errorSerie
   const castData = type === 'movie' ? castMovie : castSerie
 
+  if (error) {
+    return <div>Erro ao carregar elenco</div>
+  }
+
   return (
     <section className='min-h-screen  py-8'>
       <div className='container mx-auto px-4'>
